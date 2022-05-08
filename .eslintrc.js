@@ -28,6 +28,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off", // 리엑트 기본 import문을 생략해도 가능
     "no-unused-vars": "error", // 사용하지않는 변수 error처리
     "no-console": "off", // 콘솔로그를 사용하수 있음
+    "react/prop-types": "off",
     "@emotion/jsx-import": "off",
     "@emotion/pkg-renaming": "off",
   },

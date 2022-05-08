@@ -4,6 +4,14 @@ import card_border_01 from "../images/home/card_border_01.png";
 import card_border_02 from "../images/home/card_border_02.png";
 import card_border_03 from "../images/home/card_border_03.png";
 import card_border_04 from "../images/home/card_border_04.png";
+import arrow_right_01 from "../images/place/arrow_right_01.png";
+import arrow_left_01 from "../images/place/arrow_left_01.png";
+import arrow_right_02 from "../images/place/arrow_right_02.png";
+import arrow_left_02 from "../images/place/arrow_left_02.png";
+import arrow_right_03 from "../images/place/arrow_right_03.png";
+import arrow_left_03 from "../images/place/arrow_left_03.png";
+import arrow_right_04 from "../images/place/arrow_right_04.png";
+import arrow_left_04 from "../images/place/arrow_left_04.png";
 
 export const twinklingBox = keyframes`
   from, 20%, 53%, 80%, to {
@@ -114,5 +122,31 @@ export const fadeUp = keyframes`
 }
 100%{
     opacity: .5;
+}
+`;
+
+export const arrowActive = way => keyframes`
+0%{
+    background-image: url(${way === "left" ? arrow_left_01 : arrow_right_01});
+}
+25%{
+    background-image: url(${way === "left" ? arrow_left_02 : arrow_right_02});
+}
+50%{
+    background-image: url(${way === "left" ? arrow_left_03 : arrow_right_03});
+}
+75%{
+    background-image: url(${way === "left" ? arrow_left_04 : arrow_right_04});
+}
+`;
+
+export const blueFade = keyframes`
+0%{
+    transform: scale(2);
+    filter: blur(100px);
+}
+100%{
+    transform: scale(1);    
+    filter: blur(0);
 }
 `;
