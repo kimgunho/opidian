@@ -6,6 +6,7 @@ import {
   twinklingColor,
   showHide,
   fadeUp,
+  showHideRandom,
   imageShowHide,
 } from "../../assets/styles/animation";
 import background from "../../assets/images/home/background.jpg";
@@ -42,7 +43,7 @@ export const card = css`
 
   &.active {
     &::before {
-      animation: ${imageShowHide} 1s ease infinite;
+      animation: ${imageShowHide} 2s ease-in-out infinite;
     }
   }
 
@@ -114,6 +115,8 @@ export const absoluteFill = css`
   height: 100%;
   background-color: black;
   opacity: 0;
+  animation: ${showHideRandom} 3s ease-in-out infinite;
+  animation-delay: 0s, 3s, 6s, 9s, 12s, 15s, 18s;
 
   &.active {
     animation: ${fadeUp} 3s normal forwards ease-in-out;

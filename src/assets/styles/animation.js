@@ -58,6 +58,9 @@ export const imageShowHide = keyframes`
 75%{
     background-image: url(${card_border_04});
 }
+100%{
+    background-image: url(${card_border_01});
+}
 `;
 
 export const showHide = keyframes`
@@ -72,11 +75,44 @@ export const showHide = keyframes`
 }
 `;
 
+export const showHideRandom = keyframes`
+0%{
+    opacity: 0;
+}
+1%{
+    opacity:.3;
+}
+2%{
+    opacity: 0;
+}
+3%{
+    opacity: .4;
+}
+4%{
+    opacity: 0;
+}
+60%{
+    opacity:.5;
+}
+70%{
+    opacity: 0;
+}
+71%{
+    opacity: .2;
+}
+75%{
+    opacity: 0;
+}
+100%{
+    opacity: .2;
+}
+`;
+
 export const fadeUp = keyframes`
 0%{
     opacity: 0;
 }
 100%{
-    opacity: .75;
+    opacity: .5;
 }
 `;

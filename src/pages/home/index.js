@@ -23,7 +23,7 @@ const Home = () => {
 
   const onPage = () => {
     setTimeout(() => {
-      console.log("go~");
+      window.location.href = "/Place";
     }, 3000);
   };
 
