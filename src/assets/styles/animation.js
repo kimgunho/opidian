@@ -99,7 +99,7 @@ export const arrowActive = way => keyframes`
 }
 `;
 
-export const blueFade = keyframes`
+export const zoomBlur = keyframes`
 0%{
     transform: scale(2);
     filter: blur(100px);
