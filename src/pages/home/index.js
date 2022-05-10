@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   return (
-    <main css={container}>
+    <main css={container} className={isClick && "active"}>
       <h1 css={hide}>Opidian</h1>
       <article css={card} className={isClick && "active"}>
         <h2 css={[title, isClick && active]}>

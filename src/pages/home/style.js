@@ -1,7 +1,13 @@
 import { css } from "@emotion/react";
 import { backgroundImage, blue, textEffect } from "../../assets/styles/common";
 import { PC_HOVER } from "../../assets/styles/mediaQuery";
-import { showHide, fadeUp, showHideRandom, imageShowHide } from "../../assets/styles/animation";
+import {
+  showHide,
+  fadeUp,
+  showHideRandom,
+  imageShowHide,
+  zoomUpBlur,
+} from "../../assets/styles/animation";
 import background from "../../assets/images/home/background.jpg";
 import card_background from "../../assets/images/home/card_background.png";
 import card_border from "../../assets/images/home/card_border.png";
@@ -15,6 +21,10 @@ export const container = css`
   position: relative;
   overflow: hidden;
   ${backgroundImage(background)}
+
+  &.active {
+    animation: ${zoomUpBlur} 1s normal 2s forwards ease-in-out;
+  }
 `;
 
 export const hide = css`

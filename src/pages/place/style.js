@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { textEffect, backgroundImage } from "../../assets/styles/common";
-import { zoomBlur } from "../../assets/styles/animation";
+import { zoomDownBlur } from "../../assets/styles/animation";
 import { PC_HOVER } from "../../assets/styles/mediaQuery";
 
 import background from "../../assets/images/place/background.jpg";
@@ -16,7 +16,7 @@ export const container = hover => css`
   background-size: cover;
 
   ${backgroundImage(hover ? background_hover : background)};
-  animation: ${zoomBlur} 2s normal forwards ease-in-out;
+  animation: ${zoomDownBlur} 2s normal forwards ease-in-out;
 
   @media (max-width: 1350px) {
     background-position: center right;

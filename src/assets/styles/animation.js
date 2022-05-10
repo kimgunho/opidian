@@ -99,7 +99,7 @@ export const arrowActive = way => keyframes`
 }
 `;
 
-export const zoomBlur = keyframes`
+export const zoomDownBlur = keyframes`
 0%{
     transform: scale(2);
     filter: blur(100px);
@@ -107,5 +107,16 @@ export const zoomBlur = keyframes`
 100%{
     transform: scale(1);    
     filter: blur(0);
+}
+`;
+
+export const zoomUpBlur = keyframes`
+0%{
+    transform: scale(1);
+    filter: blur(0);
+}
+100%{
+    transform: scale(2);    
+    filter: blur(100px);
 }
 `;
