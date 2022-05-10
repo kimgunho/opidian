@@ -17,7 +17,7 @@ const Home = () => {
 
   const handleClick = event => {
     event.preventDefault();
-    setIsClick(!isClick);
+    setIsClick(true);
     onPage();
   };
 
@@ -39,8 +39,8 @@ const Home = () => {
             {isClick ? "OPIDIAN" : "Card to Enter"}
           </span>
         </h2>
-        <div css={buttonBorder}>
-          <a onClick={handleClick} href="/" css={button}>
+        <div css={buttonBorder} className={isClick && "active"}>
+          <a onClick={handleClick} href="/" css={button} className={isClick && "active"}>
             {isClick ? `SCUCESS` : "ENTER"}
           </a>
         </div>

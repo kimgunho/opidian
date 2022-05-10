@@ -1,14 +1,7 @@
 import { css } from "@emotion/react";
-import { backgroundImage, textEffect, textShadow } from "../../assets/styles/common";
+import { backgroundImage, blue, textEffect } from "../../assets/styles/common";
 import { PC_HOVER } from "../../assets/styles/mediaQuery";
-import {
-  twinklingBox,
-  twinklingColor,
-  showHide,
-  fadeUp,
-  showHideRandom,
-  imageShowHide,
-} from "../../assets/styles/animation";
+import { showHide, fadeUp, showHideRandom, imageShowHide } from "../../assets/styles/animation";
 import background from "../../assets/images/home/background.jpg";
 import card_background from "../../assets/images/home/card_background.png";
 import card_border from "../../assets/images/home/card_border.png";
@@ -59,7 +52,7 @@ export const card = css`
 `;
 
 export const title = css`
-  font-size: 3.2rem;
+  font-size: 3.4rem;
   font-weight: 700;
   color: #fff;
 `;
@@ -80,8 +73,12 @@ export const buttonBorder = css`
 
   ${PC_HOVER} {
     &:hover {
-      animation: ${twinklingBox} 1s ease infinite;
+      border-color: #8cfde959;
     }
+  }
+
+  &.active {
+    border-color: #8cfde959;
   }
 `;
 
@@ -92,14 +89,17 @@ export const button = css`
   align-items: center;
   justify-content: center;
   padding: 0.5rem 3rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #fff;
-  ${textShadow}
 
   ${PC_HOVER} {
     &:hover {
-      animation: ${twinklingColor} 1s ease infinite;
+      color: ${blue};
     }
+  }
+
+  &.active {
+    color: ${blue};
   }
 `;
 
