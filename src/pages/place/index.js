@@ -19,7 +19,7 @@ const Place = () => {
           </li>
           <li css={position("0%", "40%")}>
             <Arrow way="left" />
-            <Link to="/">
+            <Link to="/map">
               <span css={menu("MAP")}>MAP</span>
             </Link>
           </li>
@@ -32,12 +32,12 @@ const Place = () => {
               setIsHover(false);
             }}
           >
-            <Link to="/">
+            <Link to="/OPD_LAB">
               <span css={menu("OPD LAB")}>OPD LAB</span>
             </Link>
           </li>
           <li css={position("auto", "0%", "0%")}>
-            <Link to="/">
+            <Link to="/about-us">
               <span css={menu("ABOUT US")}>ABOUT US</span>
             </Link>
             <Arrow way="right" />
@@ -49,7 +49,7 @@ const Place = () => {
             <Arrow way="right" />
           </li>
           <li css={[position("auto", "100%", "0%"), hoverButton]}>
-            <Link to="/">
+            <Link to="/OPD_NFT">
               <span css={menu("OPD ACCESS NFT")}>OPD ACCESS NFT</span>
             </Link>
           </li>
