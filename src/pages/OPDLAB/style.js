@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import { textEffect } from "../../assets/styles/common";
-// import { PC_HOVER } from "../../assets/styles/mediaQuery";
 
 import OPD_background from "../../assets/images/OPD_LAB/background.jpg";
 import text_frame from "../../assets/images/OPD_LAB/text_frame.png";
@@ -110,6 +109,8 @@ export const infoCSS = isActive => css`
     color: #fff;
     font-size: 2rem;
     padding-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 1.25em #8cfde959;
   }
 
   > p {

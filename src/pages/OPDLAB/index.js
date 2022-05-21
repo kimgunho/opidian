@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 import background_red from "../../assets/images/OPD_LAB/background_red.jpg";
 import background_blue from "../../assets/images/OPD_LAB/background_blue.jpg";
@@ -12,13 +11,13 @@ const OPDLAB = () => {
   const data = [
     {
       title: "LAUNCH PAD",
-      desc: "LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PAD",
+      desc: "LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD",
       moreLink: "/",
     },
     {
       title: "NFT",
       desc: "NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT NFT ",
-      moreLink: "/",
+      moreLink: "/OPD_NFT",
     },
     {
       title: "DAO",
@@ -79,7 +78,7 @@ const OPDLAB = () => {
       <div css={infoCSS(isActive)}>
         <h3>{data[activeIndex].title}</h3>
         <p>{data[activeIndex].desc}</p>
-        <Link to={data[activeIndex].moreLink}>LEARN MORE &gt;</Link>
+        <a href={data[activeIndex].moreLink}>LEARN MORE &gt;</a>
         <button
           type="button"
           onClick={() => {
