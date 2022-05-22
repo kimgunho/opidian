@@ -68,6 +68,7 @@ export const mainModel = css`
     top: 50%;
     transform: translate(-50%, -50%);
     ${backgroundImage(rocket)};
+    background-size: contain;
   }
 `;
 
