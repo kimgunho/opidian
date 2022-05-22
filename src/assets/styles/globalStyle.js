@@ -11,6 +11,7 @@ export const globalStyles = css`
 
   html {
     font-size: 16px;
+    overflow-x: hidden;
 
     ${TABLET} {
       font-size: 14px;
