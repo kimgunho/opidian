@@ -1,7 +1,16 @@
 /** @jsxImportSource @emotion/react */
+import { useState, useRef, useEffect } from "react";
 
-import { wrapper, titleArea, csArea, title, list, post1, A1 } from "./style";
+import { post } from "./constats";
+import { wrapper, titleArea, csArea, title, list, post1, A1, dimmed } from "./style";
 const About = () => {
+  const [indexActive, setIndexActive] = useState("");
+
+  useEffect(() => {
+    console.log(liRef.current);
+  }, []);
+
+  const liRef = useRef([]);
   return (
     <main css={wrapper}>
       <section css={titleArea}>
@@ -13,55 +22,33 @@ const About = () => {
       </section>
       <section css={csArea}>
         <ul css={list}>
-          <li>
-            <p className="q" css={post1}>
-              What Blockchain do you use?
-            </p>
-            <p className="a" css={A1}>
-              What Blockchain do you use? What Blockchain do you use?
-            </p>
-          </li>
-          <li>
-            <p className="q" css={post1}>
-              What Blockchain do you use?
-            </p>
-            <p className="a" css={A1}>
-              What Blockchain do you use? What Blockchain do you use?
-            </p>
-          </li>
-          <li>
-            <p className="q" css={post1}>
-              What Blockchain do you use?
-            </p>
-            <p className="a" css={A1}>
-              What Blockchain do you use? What Blockchain do you use?
-            </p>
-          </li>
-          <li>
-            <p className="q" css={post1}>
-              What Blockchain do you use?
-            </p>
-            <p className="a" css={A1}>
-              What Blockchain do you use? What Blockchain do you use?
-            </p>
-          </li>
-          <li>
-            <p className="q" css={post1}>
-              What Blockchain do you use?
-            </p>
-            <p className="a" css={A1}>
-              What Blockchain do you use? What Blockchain do you use?
-            </p>
-          </li>
-          <li>
-            <p className="q" css={post1}>
-              What Blockchain do you use?
-            </p>
-            <p className="a" css={A1}>
-              What Blockchain do you use? What Blockchain do you use?
-            </p>
-          </li>
+          {post.map((item, index) => {
+            return (
+              <li
+                ref={el => (liRef.current[index] = el)}
+                key={index}
+                style={{ left: `${item.x}%`, top: `${item.y}%` }}
+                onClick={() => setIndexActive(index)}
+                className={index === indexActive ? "active" : ""}
+              >
+                <p className="q" css={post1(item.id)}>
+                  {item.q}
+                </p>
+                <p className="a" css={A1(item.id)}>
+                  {item.a}
+                </p>
+                <div
+                  css={dimmed}
+                  onClick={() => {
+                    console.log("click");
+                    liRef.current.forEach(item => item.classList.remove("active"));
+                  }}
+                />
+              </li>
+            );
+          })}
         </ul>
+        <div></div>
       </section>
     </main>
   );

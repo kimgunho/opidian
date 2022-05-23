@@ -13,93 +13,33 @@ import aBg3 from "../../assets/images/about/A_03.png";
 import aBg4 from "../../assets/images/about/A_04.png";
 
 export const list = css`
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 90%;
+  height: 90%;
   > li {
     position: absolute;
     cursor: pointer;
 
-    > .q {
-      background-size: 100% 100% !important;
-    }
-    > .a {
-      background-size: 100% 100% !important;
-    }
-
-    &:hover {
+    &.active {
       > .a {
-        opacity: 1;
+        z-index: 5;
+        display: flex;
       }
-    }
-
-    &:nth-of-type(1) {
-      left: 22%;
-      top: 52%;
-
       > .q {
-        ${backgroundImage(qBg1)};
+        z-index: 4;
       }
-      > .a {
-        ${backgroundImage(aBg2)};
-      }
-    }
-    &:nth-of-type(2) {
-      left: 28%;
-      top: 22%;
-
-      > .q {
-        ${backgroundImage(qBg2)};
-      }
-      > .a {
-        ${backgroundImage(aBg3)};
-      }
-    }
-    &:nth-of-type(3) {
-      left: 12%;
-      top: 02%;
-
-      > .q {
-        ${backgroundImage(qBg3)};
-      }
-      > .a {
-        ${backgroundImage(aBg4)};
-      }
-    }
-    &:nth-of-type(4) {
-      left: 41%;
-      top: 43%;
-
-      > .q {
-        ${backgroundImage(qBg4)};
-      }
-      > .a {
-        ${backgroundImage(aBg3)};
-      }
-    }
-    &:nth-of-type(5) {
-      left: 59%;
-      top: 51%;
-
-      > .q {
-        ${backgroundImage(qBg3)};
-      }
-      > .a {
-        ${backgroundImage(aBg2)};
-      }
-    }
-    &:nth-of-type(6) {
-      left: 52%;
-      top: 10%;
-
-      > .q {
-        ${backgroundImage(qBg2)};
-      }
-      > .a {
-        ${backgroundImage(aBg1)};
+      > div {
+        z-index: 3;
+        display: block;
       }
     }
   }
 `;
 
-export const post1 = () => css`
+export const post1 = number => css`
   width: 14.25rem;
   height: 14.8125rem;
   text-align: center;
@@ -109,9 +49,28 @@ export const post1 = () => css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 2;
+  ${number === 1 &&
+  `
+    background-image: url(${qBg1});  
+  `}
+  ${number === 2 &&
+  `
+    background-image: url(${qBg2});  
+  `}
+  ${number === 3 &&
+  `
+    background-image: url(${qBg3});  
+  `}
+  ${number === 4 &&
+  `
+    background-image: url(${qBg4});  
+  `}
 `;
 
-export const A1 = () => css`
+export const A1 = number => css`
   position: absolute;
   right: -50%;
   top: 50%;
@@ -120,13 +79,29 @@ export const A1 = () => css`
   text-align: center;
   padding: 1rem;
   box-sizing: border-box;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  z-index: 30;
-  transition: opacity 0.5s ease;
+  z-index: -1;
+  background-size: 100% 100%;
+
+  ${number === 1 &&
+  `
+    background-image: url(${aBg1});  
+  `}
+  ${number === 2 &&
+  `
+    background-image: url(${aBg2});  
+  `}
+  ${number === 3 &&
+  `
+    background-image: url(${aBg3});  
+  `}
+  ${number === 4 &&
+  `
+    background-image: url(${aBg4});  
+  `}
 `;
 
 export const wrapper = css`
@@ -136,9 +111,12 @@ export const wrapper = css`
 `;
 
 export const titleArea = css`
-  width: 20vw;
+  width: 15vw;
   height: 100%;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   left: 0;
   top: 0;
   ${backgroundImage(background_left)};
@@ -147,17 +125,27 @@ export const titleArea = css`
 
 export const title = css`
   box-sizing: border-box;
+  padding-top: 3rem;
   font-size: 3.2rem;
-  padding: 2rem 0 0 1rem;
   color: #b2b2b2;
 `;
 
 export const csArea = css`
-  width: 80vw;
+  width: 85vw;
   height: 100%;
   position: absolute;
   right: 0;
   top: 0;
   ${backgroundImage(background_right)};
   background-position: left center;
+`;
+
+export const dimmed = css`
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
 `;
