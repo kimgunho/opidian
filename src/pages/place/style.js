@@ -1,41 +1,65 @@
 import { css } from "@emotion/react";
 import { textEffect, backgroundImage } from "../../assets/styles/common";
 import { zoomDownBlur } from "../../assets/styles/animation";
-import { PC_HOVER } from "../../assets/styles/mediaQuery";
+import { MOBILE, PC_HOVER } from "../../assets/styles/mediaQuery";
 
 import background from "../../assets/images/place/background.jpg";
+import background_mobile from "../../assets/images/place/background_mobile.jpg";
 import background_hover from "../../assets/images/place/background_hover.jpg";
+import background_nft from "../../assets/images/place/background_nft.jpg";
 import text_background from "../../assets/images/place/text_background.png";
 import opd_arrow_line from "../../assets/images/place/line.png";
 
-export const container = hover => css`
+export const background_update = hover => css`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  overflow-y: hidden;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  ${hover === "lab" &&
+  `
+  background-image: url(${background_nft});  
+
+  `}
+  ${hover === "hover" &&
+  `
+  background-image: url(${background_hover});  
+
+  `}
+`;
+
+export const container = css`
   width: 100%;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background-size: cover;
-
-  ${backgroundImage(hover ? background_hover : background)};
+  ${backgroundImage(background)}
   animation: ${zoomDownBlur} 2s normal forwards ease-in-out;
 
-  @media (max-width: 1350px) {
-    background-position: center right;
+  ${MOBILE} {
+    ${backgroundImage(background_mobile)};
+    max-height: 100vh;
   }
 `;
 
 export const nav = css`
   position: absolute;
-  left: 45%;
+  left: 50%;
   top: 50%;
-  max-width: 61.75387505871%;
+  max-width: 62vw;
   max-height: 40.71992481203%;
   width: 100%;
   height: 100%;
   transform: translate(-50%, -50%);
 
-  @media (max-width: 1350px) {
-    left: 36%;
-    max-width: 73%;
+  ${MOBILE} {
+    left: 50%;
+    top: 60%;
   }
 
   > ul {
@@ -47,9 +71,22 @@ export const nav = css`
       align-items: center;
       transition: font-size 0.2s ease;
 
+      ${MOBILE} {
+        position: sticky;
+        justify-content: center;
+        white-space: nowrap;
+        margin-bottom: 1rem;
+        ${backgroundImage(text_background)};
+        background-size: contain;
+
+        > div {
+          display: none;
+        }
+      }
+
       ${PC_HOVER} {
         &:hover {
-          font-size: 2.8125rem;
+          font-size: 2.5rem;
         }
       }
 
@@ -78,21 +115,20 @@ export const hoverButton = css`
     position: absolute;
     right: 0;
     top: -11.5625rem;
-    width: 18.75rem;
+    width: 15rem;
     height: 12.5rem;
     ${backgroundImage(opd_arrow_line)};
-    background-position: center left;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    background-size: contain;
+    background-position: center bottom;
+
+    ${MOBILE} {
+      display: none;
+    }
   }
 
   ${PC_HOVER} {
     &:hover {
       ${backgroundImage(text_background)}
-
-      &::after {
-        opacity: 1;
-      }
     }
   }
 `;

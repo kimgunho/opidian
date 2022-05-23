@@ -1,14 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { container, nav, menu, position, hoverButton } from "./style";
+import { container, nav, menu, position, hoverButton, background_update } from "./style";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Arrow from "./components/arrow";
 
 const Place = () => {
-  const [isHover, setIsHover] = useState(false);
+  const [isHover, setIsHover] = useState("default");
 
   return (
-    <main css={container(isHover)}>
+    <main css={container}>
       <nav css={nav}>
         <ul>
           <li css={position("0%", "0%")}>
@@ -26,10 +26,10 @@ const Place = () => {
           <li
             css={position("40%", "30%")}
             onMouseEnter={() => {
-              setIsHover(true);
+              setIsHover("hover");
             }}
             onMouseLeave={() => {
-              setIsHover(false);
+              setIsHover("default");
             }}
           >
             <Link to="/OPD_LAB">
@@ -48,13 +48,22 @@ const Place = () => {
             </a>
             <Arrow way="right" />
           </li>
-          <li css={[position("auto", "100%", "0%"), hoverButton]}>
+          <li
+            css={[position("auto", "100%", "0%"), hoverButton]}
+            onMouseEnter={() => {
+              setIsHover("lab");
+            }}
+            onMouseLeave={() => {
+              setIsHover("default");
+            }}
+          >
             <Link to="/OPD_NFT">
               <span css={menu("OPD ACCESS NFT")}>OPD ACCESS NFT</span>
             </Link>
           </li>
         </ul>
       </nav>
+      <div css={background_update(isHover)} />
     </main>
   );
 };

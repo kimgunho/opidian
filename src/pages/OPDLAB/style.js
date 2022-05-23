@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import { textEffect } from "../../assets/styles/common";
 
 import OPD_background from "../../assets/images/OPD_LAB/background.jpg";
+// import OPD_background_MOBILE from "../../assets/images/OPD_LAB/background_mobile.jpg";
 import text_frame from "../../assets/images/OPD_LAB/text_frame.png";
 import text_background from "../../assets/images/OPD_LAB/text_background.png";
 import text_background_small from "../../assets/images/OPD_LAB/text_background_small.png";
@@ -41,31 +42,28 @@ export const labNav = css`
     position: absolute;
     top: 37%;
 
+    > span {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+
     &:nth-of-type(1) {
       left: 43.5%;
       > span {
         background-image: url(${text_background});
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center center;
       }
     }
     &:nth-of-type(2) {
       left: 57.5%;
       > span {
         background-image: url(${text_background_small});
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center center;
       }
     }
     &:nth-of-type(3) {
       left: 72.5%;
       > span {
         background-image: url(${text_background_small});
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center center;
       }
     }
 
@@ -74,6 +72,12 @@ export const labNav = css`
         opacity: 1;
       }
     }
+  }
+`;
+
+export const active = active => css`
+  > span {
+    display: ${active ? "none" : "block"};
   }
 `;
 

@@ -3,8 +3,8 @@ import card_border_01 from "../images/home/card_border_01.png";
 import card_border_02 from "../images/home/card_border_02.png";
 import card_border_03 from "../images/home/card_border_03.png";
 import card_border_04 from "../images/home/card_border_04.png";
-import arrow_right_01 from "../images/place/arrow_right_01.png";
-import arrow_left_01 from "../images/place/arrow_left_01.png";
+// import arrow_right_01 from "../images/place/arrow_right_01.png";
+// import arrow_left_01 from "../images/place/arrow_left_01.png";
 import arrow_right_02 from "../images/place/arrow_right_02.png";
 import arrow_left_02 from "../images/place/arrow_left_02.png";
 import arrow_right_03 from "../images/place/arrow_right_03.png";
@@ -86,16 +86,13 @@ export const fadeUp = keyframes`
 
 export const arrowActive = way => keyframes`
 0%{
-    background-image: url(${way === "left" ? arrow_left_01 : arrow_right_01});
-}
-25%{
-    background-image: url(${way === "left" ? arrow_left_02 : arrow_right_02});
+    background-image: url(${way === "left" ? arrow_left_04 : arrow_right_04});
 }
 50%{
     background-image: url(${way === "left" ? arrow_left_03 : arrow_right_03});
 }
-75%{
-    background-image: url(${way === "left" ? arrow_left_04 : arrow_right_04});
+100%{
+    background-image: url(${way === "left" ? arrow_left_02 : arrow_right_02});
 }
 `;
 

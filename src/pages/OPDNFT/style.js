@@ -39,28 +39,30 @@ export const fullImage = css`
 `;
 
 export const slide = css`
-  padding: 1rem;
+  padding: 3rem 1rem 8rem;
   box-sizing: border-box;
   text-align: center;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   > h3 {
     color: #fff;
     font-size: 2.25rem;
-    padding-bottom: 0.5rem;
   }
   > p {
     color: #fff;
     opacity: 0.4;
     font-size: 1.25rem;
-    padding-bottom: 1rem;
   }
-  > img {
-    width: 70%;
-    margin: auto;
+  > div {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 20rem;
+    margin-top: 5rem;
   }
 `;
 

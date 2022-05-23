@@ -29,17 +29,17 @@ const OPDNFT = () => {
           <div css={slide}>
             <h3>CARD NAME</h3>
             <p>2658 4185 9934 0206</p>
-            <img src={card} alt="" />
+            <div style={{ backgroundImage: `url(${card})` }} />
           </div>
           <div css={slide}>
             <h3>CARD NAME</h3>
             <p>2658 4185 9934 0206</p>
-            <img src={card} alt="" />
+            <div style={{ backgroundImage: `url(${card})` }} />
           </div>
           <div css={slide}>
             <h3>CARD NAME</h3>
             <p>2658 4185 9934 0206</p>
-            <img src={card} alt="" />
+            <div style={{ backgroundImage: `url(${card})` }} />
           </div>
         </Slider>
         <button

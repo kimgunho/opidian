@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { backgroundImage, blue, textEffect } from "../../assets/styles/common";
-import { PC_HOVER } from "../../assets/styles/mediaQuery";
+import { MOBILE, PC_HOVER } from "../../assets/styles/mediaQuery";
 import {
   showHide,
   fadeUp,
@@ -44,6 +44,11 @@ export const card = css`
   position: relative;
   z-index: 10;
 
+  ${MOBILE} {
+    max-width: 90%;
+    background-size: 100% 100%;
+  }
+
   &.active {
     &::before {
       animation: ${imageShowHide} 2s ease-in-out infinite;
@@ -58,6 +63,10 @@ export const card = css`
     top: 0;
     width: 100%;
     height: 100%;
+
+    ${MOBILE} {
+      background-size: 100% 100%;
+    }
   }
 `;
 

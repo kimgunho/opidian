@@ -5,7 +5,7 @@ import background_red from "../../assets/images/OPD_LAB/background_red.jpg";
 import background_blue from "../../assets/images/OPD_LAB/background_blue.jpg";
 import background_yello from "../../assets/images/OPD_LAB/background_yello.jpg";
 
-import { wrapper, background, hover_background, labNav, infoCSS, menuTitle } from "./style";
+import { wrapper, background, hover_background, labNav, infoCSS, menuTitle, active } from "./style";
 
 const OPDLAB = () => {
   const data = [
@@ -49,6 +49,7 @@ const OPDLAB = () => {
           onClick={() => {
             handleShowInfo(0);
           }}
+          css={active(isActive)}
         >
           <span css={menuTitle("LAUNCH PAD")}>LAUNCH PAD</span>
         </li>
@@ -60,6 +61,7 @@ const OPDLAB = () => {
           onClick={() => {
             handleShowInfo(1);
           }}
+          css={active(isActive)}
         >
           <span css={menuTitle("NFT")}>NFT</span>
         </li>
@@ -71,6 +73,7 @@ const OPDLAB = () => {
           onClick={() => {
             handleShowInfo(2);
           }}
+          css={active(isActive)}
         >
           <span css={menuTitle("DAO")}>DAO</span>
         </li>
