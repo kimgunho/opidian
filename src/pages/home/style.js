@@ -45,7 +45,8 @@ export const card = css`
   z-index: 10;
 
   ${MOBILE} {
-    max-width: 90%;
+    min-height: 20rem;
+    max-width: 30rem;
     background-size: 100% 100%;
   }
 
@@ -74,6 +75,10 @@ export const title = css`
   font-size: 3.4rem;
   font-weight: 700;
   color: #fff;
+
+  ${MOBILE} {
+    font-size: 2.4rem;
+  }
 `;
 
 export const text = text => css`
@@ -110,6 +115,10 @@ export const button = css`
   padding: 0.5rem 3rem;
   font-size: 1.5rem;
   color: #fff;
+
+  ${MOBILE} {
+    font-size: 1.25rem;
+  }
 
   ${PC_HOVER} {
     &:hover {

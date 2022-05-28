@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 import { textEffect, backgroundImage } from "../../assets/styles/common";
 import { zoomDownBlur } from "../../assets/styles/animation";
 import { MOBILE, PC_HOVER } from "../../assets/styles/mediaQuery";
@@ -42,8 +42,7 @@ export const container = css`
   animation: ${zoomDownBlur} 2s normal forwards ease-in-out;
 
   ${MOBILE} {
-    ${backgroundImage(background_mobile)};
-    max-height: 100vh;
+    display: none;
   }
 `;
 
@@ -57,11 +56,6 @@ export const nav = css`
   height: 100%;
   transform: translate(-50%, -50%);
 
-  ${MOBILE} {
-    left: 50%;
-    top: 60%;
-  }
-
   > ul {
     > li {
       position: absolute;
@@ -70,19 +64,6 @@ export const nav = css`
       display: flex;
       align-items: center;
       transition: font-size 0.2s ease;
-
-      ${MOBILE} {
-        position: sticky;
-        justify-content: center;
-        white-space: nowrap;
-        margin-bottom: 1rem;
-        ${backgroundImage(text_background)};
-        background-size: contain;
-
-        > div {
-          display: none;
-        }
-      }
 
       ${PC_HOVER} {
         &:hover {
@@ -120,10 +101,6 @@ export const hoverButton = css`
     ${backgroundImage(opd_arrow_line)};
     background-size: contain;
     background-position: center bottom;
-
-    ${MOBILE} {
-      display: none;
-    }
   }
 
   ${PC_HOVER} {
@@ -143,4 +120,77 @@ export const menu = text => css`
   color: white;
   ${textEffect(text)}
   transform: translate(-50%,0);
+`;
+
+// mobile
+
+export const containerMobile = css`
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  ${backgroundImage(background_mobile)}
+  animation: ${zoomDownBlur} 2s normal forwards ease-in-out;
+  display: none;
+
+  ${MOBILE} {
+    display: block;
+  }
+`;
+
+const fadeShow = keyframes`
+  0%{
+    opacity:0 ;
+  }
+  2%{
+    opacity:1 ;
+  }
+  4%{
+    opacity:0 ;
+  }
+  6%{
+    opacity:1 ;
+  }
+  100%{
+    opacity:1 ;
+  }
+
+`;
+
+export const navMobile = css`
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  > li {
+    font-size: 7vw;
+    text-align: center;
+    white-space: nowrap;
+    background-image: url(${text_background});
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 1rem 2rem;
+    animation: ${fadeShow} 1s forwards ease-in;
+
+    &:nth-of-type(1) {
+      animation-delay: 5s;
+    }
+    &:nth-of-type(2) {
+      animation-delay: 3s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 6s;
+    }
+    &:nth-of-type(4) {
+      animation-delay: 1s;
+    }
+    &:nth-of-type(5) {
+      animation-delay: 2s;
+    }
+    &:nth-of-type(6) {
+      animation-delay: 4s;
+    }
+  }
 `;

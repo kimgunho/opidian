@@ -11,7 +11,7 @@ const About = () => {
     <main css={wrapper}>
       <section css={titleArea}>
         <h2 css={title}>
-          ABOUT
+          ABOUT &nbsp;
           <br />
           US
         </h2>
