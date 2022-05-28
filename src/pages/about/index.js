@@ -1,16 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import { post } from "./constats";
 import { wrapper, titleArea, csArea, title, list, post1, A1, dimmed } from "./style";
 const About = () => {
   const [indexActive, setIndexActive] = useState("");
-
-  useEffect(() => {
-    console.log(liRef.current);
-  }, []);
-
   const liRef = useRef([]);
+
   return (
     <main css={wrapper}>
       <section css={titleArea}>
@@ -40,7 +36,6 @@ const About = () => {
                 <div
                   css={dimmed}
                   onClick={() => {
-                    console.log("click");
                     liRef.current.forEach(item => item.classList.remove("active"));
                   }}
                 />
@@ -48,6 +43,7 @@ const About = () => {
             );
           })}
         </ul>
+
         <div></div>
       </section>
     </main>
