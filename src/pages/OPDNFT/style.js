@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { MOBILE } from "../../assets/styles/mediaQuery";
 import { backgroundImage } from "../../assets/styles/common";
+import { zoomDownBlur } from "../../assets/styles/animation";
 
 import background from "../../assets/images/OPD_NFT/background.jpg";
 import slider_background from "../../assets/images/OPD_NFT/slider_background.png";
@@ -17,6 +18,7 @@ export const wrapper = css`
   display: flex;
   justify-content: space-between;
   ${backgroundImage(background)};
+  animation: ${zoomDownBlur} 2s normal forwards ease-in-out;
 
   ${MOBILE} {
     display: none;
@@ -119,6 +121,7 @@ export const wrapperMobile = css`
   position: relative;
   display: none;
   ${backgroundImage(background)};
+  animation: ${zoomDownBlur} 2s normal forwards ease-in-out;
 
   ${MOBILE} {
     display: block;
