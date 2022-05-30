@@ -61,6 +61,8 @@ export const post1 = number => css`
   background-size: 100% 100%;
   position: relative;
   z-index: 2;
+  font-size: 1.25rem;
+  font-family: "Nanum Brush Script", cursive;
 
   ${number === 1 &&
   `
@@ -99,7 +101,9 @@ export const A1 = number => css`
   justify-content: center;
   align-items: center;
   z-index: -1;
+  font-size: 1.25rem;
   background-size: 100% 100%;
+  font-family: "Nanum Brush Script", cursive;
 
   ${number === 1 &&
   `
