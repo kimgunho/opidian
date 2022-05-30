@@ -6,6 +6,7 @@ import OPDNFT from "./pages/OPDNFT";
 import MAP from "./pages/map";
 import OPDLAB from "./pages/OPDLAB";
 import About from "./pages/about";
+import Alert from "./components/alert";
 import { Global } from "@emotion/react";
 import { globalStyles } from "./assets/styles/globalStyle";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about-us" element={<About />} />
           <Route path="*" element={<div>404</div>} />
         </Routes>
+        <Alert />
       </UserModalProvider>
     </BrowserRouter>
   );

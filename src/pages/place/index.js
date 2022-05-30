@@ -1,4 +1,6 @@
 /** @jsxImportSource @emotion/react */
+import { UseUserModal } from "../../context/modalContext";
+
 import {
   container,
   nav,
@@ -15,7 +17,12 @@ import Arrow from "./components/arrow";
 
 const Place = () => {
   const [isHover, setIsHover] = useState("default");
+  const { setModalActive } = UseUserModal();
 
+  const showAlertModal = e => {
+    e.preventDefault();
+    setModalActive(true);
+  };
   return (
     <>
       <main css={container}>
@@ -23,7 +30,7 @@ const Place = () => {
           <ul>
             <li css={position("0%", "0%")}>
               <Arrow way="left" />
-              <a href="/" target={"_blank"}>
+              <a href="/" target={"_blank"} onClick={showAlertModal}>
                 <span css={menu("LAUNCH PAD")}>LAUNCH PAD</span>
               </a>
             </li>
@@ -53,7 +60,7 @@ const Place = () => {
               <Arrow way="right" />
             </li>
             <li css={position("auto", "20%", "0%")}>
-              <a href="/" target={"_blank"}>
+              <a href="/" target={"_blank"} onClick={showAlertModal}>
                 <span css={menu("DAO")}>DAO</span>
               </a>
               <Arrow way="right" />

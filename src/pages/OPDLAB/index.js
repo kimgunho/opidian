@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
+import { UseUserModal } from "../../context/modalContext";
 
 import background_red from "../../assets/images/OPD_LAB/background_red.jpg";
 import background_blue from "../../assets/images/OPD_LAB/background_blue.jpg";
@@ -33,6 +34,7 @@ const OPDLAB = () => {
       title: "LAUNCH PAD",
       desc: "LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD LAUNCH PAD LAUNCH PADLAUNCH PAD",
       moreLink: "/",
+      modal: true,
     },
     {
       title: "NFT",
@@ -43,6 +45,7 @@ const OPDLAB = () => {
       title: "DAO",
       desc: "DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO DAO ",
       moreLink: "/",
+      modal: true,
     },
   ];
   const [selectBg, setSelectBg] = useState(null);
@@ -50,6 +53,7 @@ const OPDLAB = () => {
   const [isActiveM, setIsActiveM] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isClickObj, setIsClickObj] = useState({ red: false, blue: false, yellow: false });
+  const { setModalActive } = UseUserModal();
 
   const onMouseLeave = () => {
     setSelectBg(null);
@@ -59,8 +63,6 @@ const OPDLAB = () => {
     setActiveIndex(number);
     setIsActive(true);
   };
-
-  // const handleMobileNavIsActive = () => {};
 
   const handleIsClickObj = box => {
     if (box === "red") {
@@ -76,6 +78,12 @@ const OPDLAB = () => {
       setIsClickObj({ red: false, blue: false, yellow: false });
     }
   };
+
+  const showAlertModal = e => {
+    onMouseLeave();
+    e.preventDefault();
+    setModalActive(true);
+  };
   return (
     <>
       <main css={wrapper}>
@@ -84,8 +92,8 @@ const OPDLAB = () => {
             onMouseEnter={() => {
               setSelectBg(background_red);
             }}
-            onMouseLeave={onMouseLeave}
             onClick={() => {
+              setSelectBg(background_red);
               handleShowInfo(0);
             }}
             css={active(isActive)}
@@ -96,8 +104,8 @@ const OPDLAB = () => {
             onMouseEnter={() => {
               setSelectBg(background_blue);
             }}
-            onMouseLeave={onMouseLeave}
             onClick={() => {
+              setSelectBg(background_blue);
               handleShowInfo(1);
             }}
             css={active(isActive)}
@@ -108,8 +116,8 @@ const OPDLAB = () => {
             onMouseEnter={() => {
               setSelectBg(background_yello);
             }}
-            onMouseLeave={onMouseLeave}
             onClick={() => {
+              setSelectBg(background_yello);
               handleShowInfo(2);
             }}
             css={active(isActive)}
@@ -120,10 +128,18 @@ const OPDLAB = () => {
         <div css={infoCSS(isActive)}>
           <h3>{data[activeIndex].title}</h3>
           <p>{data[activeIndex].desc}</p>
-          <a href={data[activeIndex].moreLink}>LEARN MORE &gt;</a>
+          {data[activeIndex].modal ? (
+            <a href={data[activeIndex].moreLink} onClick={showAlertModal}>
+              LEARN MORE &gt;
+            </a>
+          ) : (
+            <a href={data[activeIndex].moreLink}>LEARN MORE &gt;</a>
+          )}
+
           <button
             type="button"
             onClick={() => {
+              onMouseLeave();
               setIsActive(false);
             }}
           >
@@ -175,7 +191,9 @@ const OPDLAB = () => {
           <div css={infoMobileCSS}>
             <h3>{data[0].title}</h3>
             <p>{data[0].desc}</p>
-            <a href={data[0].moreLink}>LEARN MORE &gt;</a>
+            <a href={data[0].moreLink} onClick={showAlertModal}>
+              LEARN MORE &gt;
+            </a>
             <button
               type="button"
               onClick={() => {
@@ -191,6 +209,7 @@ const OPDLAB = () => {
           <div css={infoMobileCSS}>
             <h3>{data[1].title}</h3>
             <p>{data[1].desc}</p>
+
             <a href={data[1].moreLink}>LEARN MORE &gt;</a>
             <button
               type="button"
@@ -207,7 +226,9 @@ const OPDLAB = () => {
           <div css={infoMobileCSS}>
             <h3>{data[2].title}</h3>
             <p>{data[2].desc}</p>
-            <a href={data[2].moreLink}>LEARN MORE &gt;</a>
+            <a href={data[2].moreLink} onClick={showAlertModal}>
+              LEARN MORE &gt;
+            </a>
             <button
               type="button"
               onClick={() => {
