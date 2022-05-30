@@ -1,12 +1,12 @@
 import { css } from "@emotion/react";
-import { MOBILE, PC_HOVER } from "../../assets/styles/mediaQuery";
+import { MOBILE } from "../../assets/styles/mediaQuery";
 import { textEffect } from "../../assets/styles/common";
 import alert_background from "../../assets/images/global/error_border.png";
 
 export const card = isActive => css`
   width: 100%;
-  max-width: 46.25rem;
-  min-height: 28.125rem;
+  max-width: 40rem;
+  min-height: 25rem;
   display: ${isActive ? "flex" : "none"};
   flex-direction: column;
   justify-content: center;
@@ -42,10 +42,12 @@ export const title = css`
 
     &:first-of-type {
       ${textEffect("To be")};
+      transform: translate(-50%, 0);
       text-shadow: none;
     }
     &:last-of-type {
       ${textEffect("Announced")};
+      transform: translate(-50%, 0);
       text-shadow: none;
     }
   }
@@ -55,35 +57,17 @@ export const title = css`
   }
 `;
 
-export const buttonBorder = css`
-  border: 1px solid #fff;
-  box-shadow: 0px 0px 10px #a27e7e, inset 0 0 20px #a27e7e;
-  background-color: transparent;
-  padding: 0.5rem;
-  cursor: pointer;
-  position: relative;
-  z-index: 20;
-
-  ${PC_HOVER} {
-    &:hover {
-      border-color: #a27e7e;
-    }
-  }
-
-  &.active {
-    border-color: #a27e7e;
-  }
-`;
-
 export const button = css`
-  background-color: rgba(255, 255, 255, 1);
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
   border: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 3rem;
-  font-size: 1.5rem;
-  color: #a27e7e;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
 
   ${MOBILE} {
     font-size: 1.25rem;

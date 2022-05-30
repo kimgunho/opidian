@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { MOBILE } from "./mediaQuery";
 
 export const blue = "#8CFDE9";
 export const pink = "#FEB4FF";
@@ -37,6 +38,10 @@ export const textEffect = text => css`
     color: ${blue};
     z-index: -1;
     position: absolute;
+
+    ${MOBILE} {
+      left: calc(50% - 1px);
+    }
   }
 
   &:after {
@@ -48,5 +53,9 @@ export const textEffect = text => css`
     color: ${pink};
     z-index: -1;
     position: absolute;
+
+    ${MOBILE} {
+      left: calc(50% + 1px);
+    }
   }
 `;

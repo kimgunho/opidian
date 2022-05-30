@@ -170,7 +170,7 @@ export const wrapperMobile = css`
   min-height: 100vh;
   position: relative;
   ${backgroundImage(OPD_background_MOBILE)};
-  background-position: center 100%;
+  background-position: center center;
 `;
 
 export const navMobile = boolean => css`
@@ -208,8 +208,8 @@ export const centerNav = css`
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 30vw;
+  width: 90%;
+  height: 35vw;
   display: flex;
   justify-content: space-between;
 
